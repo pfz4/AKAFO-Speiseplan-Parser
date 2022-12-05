@@ -1,0 +1,18 @@
+[package]
+name = "akafo-menu-parser"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+reqwest = { version="0.11.13", optional=true}
+feed-rs = "1.2.0"
+chrono = "0.4.23"
+html_parser = "0.6.3"
+regex = "1"
+thiserror = "1.0.37"
+
+[features]
+"default" = ["uri-download"]
+"uri-download" = ["dep:reqwest"]
