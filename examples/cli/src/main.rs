@@ -11,11 +11,7 @@ async fn main() {
             for meal in meal_group.meals {
                 println!(
                     "    - {} ({}€ - {}€) [{:?}{:?}]",
-                    meal.name,
-                    meal.price_student,
-                    meal.price_student,
-                    meal.information,
-                    meal.additives
+                    meal.name, meal.price_student, meal.price, meal.information, meal.additives
                 );
             }
             println!();
