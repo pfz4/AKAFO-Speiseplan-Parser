@@ -100,7 +100,8 @@ pub async fn parse_from_uri(uri: &str) -> Result<Menu, Error> {
 }
 
 pub fn parse_from_str(input: &str) -> Result<Menu, Error> {
-    let feed = feed_rs::parser::parse(input.as_bytes()).map_err(Error::CouldNotParseFeed)?;
+    let feed = feed_rs::parser::parse(input.replace('&', "&amp;").as_bytes())
+        .map_err(Error::CouldNotParseFeed)?;
     parse_menu(feed)
 }
 
