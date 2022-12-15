@@ -8,10 +8,11 @@ edition = "2021"
 [dependencies]
 reqwest = { version="0.11.13", optional=true}
 feed-rs = "1.2.0"
-chrono = "0.4.23"
+chrono = { version="0.4.23", features=["serde"]}
 html_parser = "0.6.3"
 regex = "1"
 thiserror = "1.0.37"
+serde = { version="1.0", features=["derive"]}
 
 [features]
 "default" = ["uri-download"]

@@ -3,9 +3,10 @@ use std::fmt::Display;
 use chrono::{NaiveDate, NaiveDateTime};
 use feed_rs::model::Feed;
 use regex::Regex;
+use serde::Serialize;
 use thiserror::Error;
 
-#[derive(Debug)]
+#[derive(Debug, Serialize)]
 pub struct Menu {
     pub title: String,
     pub id: String,
@@ -13,7 +14,7 @@ pub struct Menu {
     pub day_menues: Vec<MenuDay>,
 }
 
-#[derive(Debug)]
+#[derive(Debug, Serialize)]
 pub struct MenuDay {
     pub id: String,
     pub date: NaiveDate,
@@ -22,13 +23,13 @@ pub struct MenuDay {
     pub meal_groups: Vec<MealGroup>,
 }
 
-#[derive(Debug, Default)]
+#[derive(Debug, Default, Serialize)]
 pub struct MealGroup {
     pub title: String,
     pub meals: Vec<Meal>,
 }
 
-#[derive(Debug)]
+#[derive(Debug, Serialize)]
 pub struct Meal {
     pub name: String,
     pub information: Vec<MealInformation>,
@@ -37,7 +38,7 @@ pub struct Meal {
     pub price: f32,
 }
 
-#[derive(Debug, PartialEq, Eq)]
+#[derive(Debug, PartialEq, Eq, Serialize)]
 pub enum MealInformation {
     MitAlkohol,
     MitFisch,
@@ -51,7 +52,7 @@ pub enum MealInformation {
     MitWild,
 }
 
-#[derive(Debug, PartialEq, Eq)]
+#[derive(Debug, PartialEq, Eq, Serialize)]
 pub enum MealAdditive {
     MitFarbstoff,
     MitKonservierungsstoff,
